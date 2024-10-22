@@ -20,15 +20,15 @@ print(document)
 from langchain_core.prompts import ChatPromptTemplate
 
 prompt_template = ChatPromptTemplate.from_messages([
-    ("system", "You are a helpful assistant"),
-    ("user", "Riassumi in italiano il seguente transcript di un video: {transcript}")
+	("user", "Riassumi in italiano il seguente transcript di un video: {transcript}")
 ])
 
 # valorizziamo il template con il contenuto del documento
 template = prompt_template.invoke({"transcript": document.page_content})
 print(template)
 
-# Ora possiamo invocare GPT per generare il riassunto. Avremo bisogno di una API key per OpenAI che verra' presa dall'environment
+# Ora possiamo invocare GPT per generare il riassunto.
+# Avremo bisogno di una API key per OpenAI che verra' presa dall'environment
 from langchain_openai import ChatOpenAI
 llm = ChatOpenAI(temperature=0, model_name="gpt-4o-mini")
 
@@ -37,3 +37,9 @@ answer = llm.invoke(template)
 
 # Stampiamo il risultato
 print(answer.content)
+
+
+
+
+
+

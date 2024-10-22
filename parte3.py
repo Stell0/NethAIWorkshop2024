@@ -65,8 +65,7 @@ for document in similar_documents:
 # Usiamo il prompt template di langchain
 from langchain_core.prompts import ChatPromptTemplate
 prompt_template = ChatPromptTemplate.from_messages([
-    ("system", "You are a helpful assistant"),
-    ("user", """
+	("user", """
 Utilizza il contenuto del testo fornito per rispondere alla domanda dell'utente citando la fonte. Rispondi che non conosci la risposta se non è contenuta nel testo.
 Domanda: {question}
 	 

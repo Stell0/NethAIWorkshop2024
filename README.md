@@ -8,6 +8,13 @@
 
 ## Preparare l'ambiente
 
+Scaricare il codice sorgente
+
+```
+git clone https://github.com/Stell0/NethAIWorkshop2024.git
+cd NethAIWorkshop2024
+```
+
 (Opzionale) usare python virtualenv
 
 ```
@@ -24,7 +31,7 @@ $ pip install -r requirements.txt
 Esportare la variabile d'ambiente con l'API key di OpenAI
 
 ```
- export $(cat .env)
+ export $(cat api_key.txt)
 ```
 
 
@@ -33,13 +40,7 @@ Esportare la variabile d'ambiente con l'API key di OpenAI
 In questa parte useremo Langchain per fare un'applicazione che fa il riassunto di un video di YouTube
 
 * LangChain
-	* che cos'è
-	* perché usare LangChain
-	* installiamo LangChain
-
-	https://www.langchain.com/
-	https://python.langchain.com/v0.2/docs/introduction/
-
+* Installazione librerie
 * Document loaders
 * Prompts and Templates
 
@@ -86,4 +87,8 @@ $ python parte3playground.py https://www.youtube.com/playlist?list=PLWzKfs3icbT6
 
 ## Links
 
+Repository GitHub https://github.com/Stell0/NethAIWorkshop2024
+
 Presentazione https://docs.google.com/presentation/d/1JSOQmHB8shZv2JdfEXTAEwi5X1GUPTVQHcPxqgP4xsw/
+
+LangChain https://www.langchain.com/
