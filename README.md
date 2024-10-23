@@ -15,6 +15,18 @@ git clone https://github.com/Stell0/NethAIWorkshop2024.git
 cd NethAIWorkshop2024
 ```
 
+Decifrare il file api_key.zip con l'API KEY di OpenAI
+
+```
+unzip -P PASSWORD api_key.zip
+```
+
+Esportare la variabile d'ambiente con l'API key di OpenAI
+
+```
+ export $(cat api_key.txt)
+```
+
 (Opzionale) usare python virtualenv
 
 ```
@@ -26,12 +38,6 @@ Installare le librerie necessarie
 
 ```
 $ pip install -r requirements.txt
-```
-
-Esportare la variabile d'ambiente con l'API key di OpenAI
-
-```
- export $(cat api_key.txt)
 ```
 
 

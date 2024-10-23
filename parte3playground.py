@@ -1,3 +1,4 @@
+import time
 from get_playlist import get_video_url_from_playlist
 from langchain_community.document_loaders import YoutubeLoader
 from langchain_chroma import Chroma
@@ -12,17 +13,26 @@ import sys
 url = sys.argv[1]
 
 # prendiamo la lista di video dalla playlist
+print(f"Prendiamo i video dalla playlist {url}...")
 video_urls = get_video_url_from_playlist(url)
 print(f"Estratti {len(video_urls)} video dalla playlist")
 
 # Usiamo il Document Loader per caricare il video
+print("Carichiamo le trascrizioni dei video...")
 documents = []
 for url in video_urls:
-	loader = YoutubeLoader.from_youtube_url(
-    	url,
-		language=["it", "en"]
-	)
-	documents += loader.load()
+	try:
+		loader = YoutubeLoader.from_youtube_url(
+    		url,
+			language=["it", "en"]
+		)
+		documents += loader.load()
+		print(f"Caricato il video {url}")
+		# cerchiamo di evitare di farci bannare da youtube
+		#time.sleep(1)
+	except:
+		print(f"Errore nel caricare il video {url}")
+		continue
 print(f"Caricate le trascrizioni di {len(documents)} video")
 
 # print(documents)
@@ -38,6 +48,7 @@ print(f"Divise le trascrizioni in {len(documents)} documenti")
 #print(documents)
 
 # creiamo un vectorstore con i nostri documenti
+print("Creiamo il vectorstore con i documenti...")
 db = Chroma.from_documents(documents, OpenAIEmbeddings())
 print("Creato il vectorstore con i documenti")
 
