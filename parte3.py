@@ -41,12 +41,13 @@ from langchain_openai import OpenAIEmbeddings
 db = Chroma.from_documents(documents, OpenAIEmbeddings())
 print("Creato il vectorstore con i documenti")
 
-# Per rispondere ad una domanda dobbiamo trovare i documenti più rilevanti. Lo faremo cercando la similarità tra il testo della domanda e i documenti
-from langchain_core.vectorstores import VectorStoreRetriever
-retriever = VectorStoreRetriever(vectorstore=db, search_type="similarity", search_kwargs={"k": 10})
-
 print("\nInserisci una domanda relativa al contenuto dei video")
 question = input()
+
+# Per rispondere ad una domanda dobbiamo trovare i documenti più rilevanti.
+# Lo faremo cercando la similarità tra il testo della domanda e i documenti
+from langchain_core.vectorstores import VectorStoreRetriever
+retriever = VectorStoreRetriever(vectorstore=db, search_type="similarity", search_kwargs={"k": 10})
 
 similar_documents = retriever.invoke(question)
 print(f"Trovati {len(similar_documents)} documenti simili alla domanda")
