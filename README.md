@@ -24,20 +24,20 @@ unzip -P PASSWORD api_key.zip
 Esportare la variabile d'ambiente con l'API key di OpenAI
 
 ```
- export $(cat api_key.txt)
+export $(cat api_key.txt)
 ```
 
 (Opzionale) usare python virtualenv
 
 ```
-$ virtualenv workshop
-$ source workshop/bin/activate
+virtualenv workshop
+source workshop/bin/activate
 ```
 
 Installare le librerie necessarie
 
 ```
-$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Preparare l'ambiente su NethServer 8
@@ -71,7 +71,7 @@ In questa parte useremo Langchain per fare un'applicazione che fa il riassunto d
 Eseguire il programma
 
 ```
-$ python parte1.py https://www.youtube.com/watch?v=0HP6mUlf8xw
+python parte1.py https://www.youtube.com/watch?v=0HP6mUlf8xw
 ```
 
 
@@ -84,7 +84,7 @@ In questa parte estenderemo l'applicazione della prima parte per poter fare doma
 Eseguire il programma
 
 ```
-$ python parte2.py https://www.youtube.com/watch?v=0HP6mUlf8xw
+python parte2.py https://www.youtube.com/watch?v=0HP6mUlf8xw
 ```
 
 
@@ -99,13 +99,13 @@ In questa parte metteremo il contenuto di alcuni video in un database (Vectorsto
 
 Eseguire il programma (test)
 ```
-$ python parte3.py https://www.youtube.com/playlist?list=PLWzKfs3icbT6yhDTpO1GyDlz9AXdWSiGr
+python parte3.py https://www.youtube.com/playlist?list=PLWzKfs3icbT6yhDTpO1GyDlz9AXdWSiGr
 ```
 
 Eseguire la parte 3 con tutti i documenti della playlist e un modello migliore
 
 ```
-$ python parte3playground.py https://www.youtube.com/playlist?list=PLWzKfs3icbT6yhDTpO1GyDlz9AXdWSiGr
+python parte3playground.py https://www.youtube.com/playlist?list=PLWzKfs3icbT6yhDTpO1GyDlz9AXdWSiGr
 ```
 
 
