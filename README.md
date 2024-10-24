@@ -40,6 +40,24 @@ Installare le librerie necessarie
 $ pip install -r requirements.txt
 ```
 
+## Preparare l'ambiente su NethServer 8
+
+```
+dnf install -y python3-pip vim git unzip
+git clone https://github.com/Stell0/NethAIWorkshop2024.git
+cd NethAIWorkshop2024
+pip install virtualenv
+virtualenv workshop
+source workshop/bin/activate
+pip install -r requirements.txt
+```
+
+Estrarre l'archivio con l'api key ed esportarla
+```
+unzip -P PASSWORD api_key.zip
+export $(cat api_key.txt)
+```
+
 
 ## Parte 1
 
